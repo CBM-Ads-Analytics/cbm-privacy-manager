@@ -376,22 +376,22 @@ to create a white background.
 .klaro .cookie-modal .cm-btn.cm-btn-success,
 .klaro .context-notice .cm-btn.cm-btn-success,
 .klaro .cookie-notice .cm-btn.cm-btn-success {
-  background-color: #1a936f;
-  background-color: var(--green1, #1a936f);
+  background-color: #002dbc;
+  background-color: var(--blue1, #002dbc);
 }
 
 .klaro .cookie-modal .cm-btn.cm-btn-success-var,
 .klaro .context-notice .cm-btn.cm-btn-success-var,
 .klaro .cookie-notice .cm-btn.cm-btn-success-var {
-  background-color: #24cc9a;
-  background-color: var(--green2, #24cc9a);
+  background-color: #1b0071;
+  background-color: var(--blue2, #1b0071);
 }
 
 .klaro .cookie-modal .cm-btn.cm-btn-info,
 .klaro .context-notice .cm-btn.cm-btn-info,
 .klaro .cookie-notice .cm-btn.cm-btn-info {
-  background-color: #2581c4;
-  background-color: var(--blue1, #2581c4);
+  background-color: #1b0071;
+  background-color: var(--blue1, #1b0071);
 }
 
 .klaro .context-notice {
@@ -427,8 +427,8 @@ to create a white background.
 }
 
 .klaro .context-notice.cm-dark p a {
-  color: #459cdc;
-  color: var(--blue2, #459cdc);
+  color: #1b0071;
+  color: var(--blue2, #1b0071);
 }
 
 .klaro .context-notice p {
@@ -441,8 +441,8 @@ to create a white background.
 }
 
 .klaro .context-notice p a {
-  color: #24cc9a;
-  color: var(--green2, #24cc9a);
+  color: #d561ff;
+  color: var(--purple1, #d561ff);
 }
 
 .klaro .context-notice p.cm-buttons {
