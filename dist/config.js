@@ -16,7 +16,7 @@ var klaroConfig = {
     // supporting IE9-10 (which you probably shouldn't) you need to use Klaro
     // with an external stylesheet as the dynamic replacement won't work there.
     styling: {
-        theme: ['light', 'top', 'wide'],
+        theme: ['dark', 'bottom', 'wide'],
     },
 
     // Setting this to true will keep Klaro from automatically loading itself
@@ -43,11 +43,11 @@ var klaroConfig = {
 
     // You can customize the name of the cookie that Klaro uses for storing
     // user consent decisions. If undefined, Klaro will use 'klaro'.
-    cookieName: 'klaro',
+    cookieName: 'cbm-consent',
 
     // You can also set a custom expiration time for the Klaro cookie.
     // By default, it will expire after 120 days.
-    cookieExpiresAfterDays: 365,
+    cookieExpiresAfterDays: 120,
 
     // You can change to cookie domain for the consent manager itself.
     // Use this if you want to get consent once for multiple matching domains.
@@ -60,7 +60,7 @@ var klaroConfig = {
     //cookiePath: '/',
 
     // Defines the default state for services (true=enabled by default).
-    default: false,
+    default: true,
 
     // If "mustConsent" is set to true, Klaro will directly display the consent
     // manager modal and not allow the user to close it before having actively
@@ -72,20 +72,21 @@ var klaroConfig = {
     acceptAll: true,
 
     // replace "decline" with cookie manager modal
-    hideDeclineAll: false,
+    hideDeclineAll: true,
 
     // hide "learnMore" link
     hideLearnMore: false,
 
     // show cookie notice as modal
     noticeAsModal: false,
-
+    
+   
     // You can also remove the 'Realized with Klaro!' text in the consent modal.
     // Please don't do this! We provide Klaro as a free open source tool.
     // Placing a link to our website helps us spread the word about it,
     // which ultimately enables us to make Klaro! better for everyone.
     // So please be fair and keep the link enabled. Thanks :)
-    //disablePoweredBy: true,
+    disablePoweredBy: true,
 
     // you can specify an additional class (or classes) that will be added to the Klaro `div`
     //additionalClass: 'my-klaro',
@@ -94,7 +95,7 @@ var klaroConfig = {
     // use the value given in the global "lang" variable. If that does
     // not exist, it will use the value given in the "lang" attribute of your
     // HTML tag. If that also doesn't exist, it will use 'en'.
-    //lang: 'en',
+    lang: 'en',
 
     // You can overwrite existing translations and add translations for your
     // service descriptions and purposes. See `src/translations/` for a full
@@ -107,229 +108,80 @@ var klaroConfig = {
         // translationsed defined under the 'zz' language code act as default
         // translations.
         zz: {
-            privacyPolicyUrl: '/#privacy',
+            privacyPolicyUrl: '/privacy-policy',
         },
-        // If you erase the "consentModal" translations, Klaro will use the
-        // bundled translations.
-        de: {
-            privacyPolicyUrl: '/#datenschutz',
-            consentModal: {
-                description:
-                    'Hier können Sie einsehen und anpassen, welche Information wir über Sie sammeln. Einträge die als "Beispiel" gekennzeichnet sind dienen lediglich zu Demonstrationszwecken und werden nicht wirklich verwendet.',
-            },
-            inlineTracker: {
-                description: 'Beispiel für ein Inline-Tracking Skript',
-            },
-            externalTracker: {
-                description: 'Beispiel für ein externes Tracking Skript',
-            },
-            adsense: {
-                description: 'Anzeigen von Werbeanzeigen (Beispiel)',
-                title: 'Google AdSense Werbezeugs',
-            },
-            matomo: {
-                description: 'Sammeln von Besucherstatistiken',
-            },
-            camera: {
-                description:
-                    'Eine Überwachungskamera (nur ein Beispiel zu IMG-Tags)',
-            },
-            cloudflare: {
-                description: 'Schutz gegen DDoS-Angriffe',
-            },
-            intercom: {
-                description:
-                    'Chat Widget & Sammeln von Besucherstatistiken (nur ein Beispiel)',
-            },
-            mouseflow: {
-                description: 'Echtzeit-Benutzeranalyse (nur ein Beispiel)',
-            },
-            googleFonts: {
-                description: 'Web-Schriftarten von Google gehostet',
-            },
-            purposes: {
-                analytics: 'Besucher-Statistiken',
-                security: 'Sicherheit',
-                livechat: 'Live Chat',
-                advertising: 'Anzeigen von Werbung',
-                styling: 'Styling',
-            },
-        },
+
         en: {
-            consentModal: {
-                title: '<u>test</u>',
+         
+          consentNotice: {
+                title: 'Cookie Notice',    
+                description: 'This website uses cookies to enhance user experience, analyzie web performance and shares information about you with our social media, advertising and analytical partners. We do not sell your information.',
+                learnMore: 'Customize Options',
+            },
+             
+          consentModal: {
+                title: '<b>Cookie Customization</b>',
                 description:
-                    'Here you can see and customize the information that we collect about you. Entries marked as "Example" are just for demonstration purposes and are not really used on this website.',
+                    'When you browse our website, we use cookies to gather information on your browser. This information includes details about you, your preferences, and your device. We primarily use this data to ensure that our website functions as you would expect, and to tailor your browsing experience to your needs. However, you have the option to decline certain types of cookies, though this may affect how the website functions and the services we can provide. If you want to learn more or customize your settings, you can click on the different categories listed.</n>',
             },
-            inlineTracker: {
-                description: 'Example of an inline tracking script',
+          
+          decline: 'Only Functional',
+          ok: 'Accept All',
+          
+            analytics: {
+                description: 'Cookies used for analytics help collect data that allows services to understand how users interact with a particular service. These insights allow services both to improve content and to build better features that improve the user’s experience. We do not collect personally identifiable information through these services.<p><b>Examples:</b> Google Analytics, Matomo, Segment</p>',
+                title: 'Analytics',
             },
-            externalTracker: {
-                description: 'Example of an external tracking script',
+            advertising: {
+                description: 'These third-party cookies are for advertising, including serving and rendering ads, personalizing ads, limiting the number of times an ad is shown to a user, muting ads you have chosen to stop seeing, and measuring the effectiveness of ads.<p><b>Examples:</b> Facebook & Instagram Ads, LinkedIn Ads, Google Ads</p>',
+                title: 'Advertising',
             },
-            adsense: {
-                description: 'Displaying of advertisements (just an example)',
-                title: 'Google Adsense Advertisement',
+           
+            functionality: {
+                description: 'Cookies used for functionality allow users to interact with a service or site to access features that are fundamental to that service. Things considered fundamental to the service include preferences like the user’s choice of language, product optimizations that help maintain and improve a service, and maintaining information relating to a user’s session, such as the content of a shopping cart.<p><b>Examples:</b> Vimeo, Google Fonts, Wordpress</p>',
+                title: 'Functionality',
             },
-            matomo: {
-                description: 'Collecting of visitor statistics',
-            },
-            camera: {
-                description:
-                    'A surveillance camera (just an example for an IMG tag)',
-            },
-            cloudflare: {
-                description: 'Protection against DDoS attacks',
-            },
-            intercom: {
-                description:
-                    'Chat widget & collecting of visitor statistics (just an example)',
-            },
-            mouseflow: {
-                description: 'Real-Time user analytics (just an example)',
-            },
-            googleFonts: {
-                description: 'Web fonts hosted by Google',
-            },
-            purposes: {
+            
+      purposes: {
+                functionality: 'Functional',
                 analytics: 'Analytics',
                 security: 'Security',
-                livechat: 'Livechat',
                 advertising: 'Advertising',
-                styling: 'Styling',
             },
+            
         },
     },
 
     // This is a list of third-party services that Klaro will manage for you.
     services: [
-        {
-            name: 'twitter',
-            default: false,
-            contextualConsentOnly: true,
-            purposes: ['marketing'],
-        },
-        {
-            name: 'youtube',
+       {
+            name: 'functionality',
+            title: "Functionality",
             default: true,
-            purposes: ['marketing'],
-        },
-        {
-            // Each service should have a unique (and short) name.
-            name: 'matomo',
-
-            // If "default" is set to true, the service will be enabled by default
-            // Overwrites global "default" setting.
-            // We recommend leaving this to "false" for services that collect
-            // personal information.
-            default: true,
-
-            // The title of your service as listed in the consent modal.
-            title: 'Matomo/Piwik',
-
-            // The purpose(s) of this service. Will be listed on the consent notice.
-            // Do not forget to add translations for all purposes you list here.
-            purposes: ['analytics'],
-
-            // A list of regex expressions or strings giving the names of
-            // cookies set by this service. If the user withdraws consent for a
-            // given service, Klaro will then automatically delete all matching
-            // cookies.
-            cookies: [
-                // you can also explicitly provide a path and a domain for
-                // a given cookie. This is necessary if you have services that
-                // set cookies for a path that is not "/" or a domain that
-                // is not the current domain. If you do not set these values
-                // properly, the cookie can't be deleted by Klaro
-                // (there is no way to access the path or domain of a cookie in JS)
-                // Notice that it is not possible to delete cookies that were set
-                // on a third-party domain! See the note at mdn:
-                // https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie#new-cookie_domain
-                [/^_pk_.*$/, '/', 'klaro.kiprotect.com'], //for the production version
-                [/^_pk_.*$/, '/', 'localhost'], //for the local version
-                'piwik_ignore',
-            ],
-
-            // An optional callback function that will be called each time
-            // the consent state for the service changes (true=consented). Passes
-            // the `service` config as the second parameter as well.
-            callback: function(consent, service) {
-                // This is an example callback function.
-                console.log(
-                    'User consent for service ' + service.name + ': consent=' + consent
-                );
-                // To be used in conjunction with Matomo 'requireCookieConsent' Feature, Matomo 3.14.0 or newer
-                // For further Information see https://matomo.org/faq/new-to-piwik/how-can-i-still-track-a-visitor-without-cookies-even-if-they-decline-the-cookie-consent/
-                /*
-                if(consent==true){
-                    _paq.push(['rememberCookieConsentGiven']);
-                } else {
-                    _paq.push(['forgetCookieConsentGiven']);
-                }
-                */
-            },
-
-            // If "required" is set to true, Klaro will not allow this service to
-            // be disabled by the user.
-            required: false,
-
-            // If "optOut" is set to true, Klaro will load this service even before
-            // the user gave explicit consent.
-            // We recommend always leaving this "false".
-            optOut: false,
-
-            // If "onlyOnce" is set to true, the service will only be executed
-            // once regardless how often the user toggles it on and off.
-            onlyOnce: true,
-        },
-
-        // The services will appear in the modal in the same order as defined here.
-        {
-            name: 'inlineTracker',
-            title: 'Inline Tracker',
-            purposes: ['analytics'],
-            cookies: ['inline-tracker'],
-            optOut: false,
-        },
-        {
-            name: 'externalTracker',
-            title: 'External Tracker',
-            purposes: ['analytics', 'security'],
-            cookies: ['external-tracker'],
-        },
-        {
-            name: 'intercom',
-            title: 'Intercom',
-            default: true,
-            purposes: ['livechat'],
-        },
-        {
-            name: 'mouseflow',
-            title: 'Mouseflow',
-            purposes: ['analytics'],
-        },
-        {
-            name: 'adsense',
-            // if you omit the title here Klaro will try to look it up in the
-            // translations
-            //title: 'Google AdSense',
-            purposes: ['advertising'],
-        },
-        {
-            name: 'camera',
-            title: 'Surveillance Camera',
-            purposes: ['security'],
-        },
-/*        {
-            name: 'googleFonts',
-            title: 'Google Fonts',
-            purposes: ['styling'],
-        },*/
-        {
-            name: 'cloudflare',
-            title: 'Cloudflare',
-            purposes: ['security'],
+            purposes: ['functionality'],
+            cookies: ['vuid'],
             required: true,
         },
+      
+      {
+            name: 'analytics',
+            title: "Analytics",
+            default: true,
+            purposes: ['analytics'],
+            contextualConsentOnly: true,
+            cookies: ['_ga_EMRQ7QDYVK'],
+            required: false,
+        },  
+      {
+            name: 'advertising',
+            title: "Advertising",
+            default: true,
+            purposes: ['advertising'],
+            contextualConsentOnly: true,
+            cookies: ['_fbp','_ga','ADS_VISITOR_ID','_twitter','twid','guest_id','muc_ads','sa-user-id','sa-user-id-v2','sa-user-id-v3','suid','MUID','lidc','li_sugr','bcookie'],
+            required: false,
+        },  
+      
+        
     ],
 };
